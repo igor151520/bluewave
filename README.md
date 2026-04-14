@@ -23,6 +23,15 @@ Este projeto foi desenvolvido como atividade avaliativa da disciplina de Front-e
 
 ---
 
+## 👥 Integrantes
+- Luan Martins Sastre
+- Igor Mafalda
+- Matheus Silva Ribeiro
+- Tauane Carolina da Silva
+- Nicolas Noronha
+
+  ---
+  
 ## ▶️ Como rodar o projeto
 
 ```bash
