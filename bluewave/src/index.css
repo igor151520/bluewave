@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f9ff;
+}
+
+/* HEADER */
+.header {
+  background-color: #0d47a1;
+  padding: 25px;
+  text-align: center;
+}
+
+/* LOGO ESTILIZADA */
+.logo {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* CONTEÚDO */
+.container {
+  padding: 20px;
+}
+
+h2 {
+  color: #0d47a1;
+}
+
+/* GRID DE PRODUTOS */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  width: 200px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* IMAGEM */
+img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* BOTÃO */
+button {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+button {
+  margin: 5px;
+}
