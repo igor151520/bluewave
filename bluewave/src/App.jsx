@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/header";
 import ProdutoCard from "./components/produtoCard";
 import CarrinhoResumo from "./components/carrinhoResumo";
@@ -7,6 +7,18 @@ import "./styles/global.css";
 
 function App() {
   const [carrinho, setCarrinho] = useState({});
+
+  useEffect(() => {
+    const carrinhoSalvo = localStorage.getItem("carrinho");
+
+    if (carrinhoSalvo) {
+      setCarrinho(JSON.parse(carrinhoSalvo));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [carrinho]);
 
   const adicionar = (nome) => {
     setCarrinho((prev) => ({
@@ -22,17 +34,41 @@ function App() {
     }));
   };
 
+  const limparCarrinho = () => {
+    setCarrinho({});
+    localStorage.removeItem("carrinho");
+  };
+
+  const finalizarCompra = () => {
+    alert("Compra finalizada com sucesso!");
+
+    setCarrinho({});
+    localStorage.removeItem("carrinho");
+  };
+
   const totalItens = Object.values(carrinho).reduce(
     (acc, item) => acc + item,
     0
   );
+
+  const totalCompra = produtos.reduce((acc, produto) => {
+    const quantidade = carrinho[produto.nome] || 0;
+
+    return acc + quantidade * produto.preco;
+  }, 0);
 
   return (
     <div>
       <Header />
 
       <div className="container">
-        <CarrinhoResumo total={totalItens} />
+        <CarrinhoResumo
+           total={totalItens}
+           carrinho={carrinho}
+           limparCarrinho={limparCarrinho}
+           totalCompra={totalCompra}
+           finalizarCompra={finalizarCompra}
+            />
 
         <div className="grid">
           {produtos.map((produto) => (
